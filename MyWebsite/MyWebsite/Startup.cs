@@ -11,7 +11,7 @@ namespace MyWebsite
         {
             services.AddMvc(config =>
             {
-                config.Filters.Add(new FirstActionFilter());
+                config.Filters.Add(new ActionFilter());
                 config.Filters.Add(new ResultFilter());
                 config.Filters.Add(new ExceptionFilter());
                 config.Filters.Add(new ResourceFilter());

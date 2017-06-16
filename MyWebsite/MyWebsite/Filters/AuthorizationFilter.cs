@@ -1,17 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Filters;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 
 namespace MyWebsite.Filters
 {
-    public class AuthorizationFilter : IAuthorizationFilter
+    public class AuthorizationFilter : IAsyncAuthorizationFilter
     {
-        public void OnAuthorization(AuthorizationFilterContext context)
+        public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
         {
-            context.HttpContext.Response.WriteAsync($"{GetType().Name} in. \r\n");
+            await context.HttpContext.Response.WriteAsync($"{GetType().Name} in. \r\n");
         }
     }
 }

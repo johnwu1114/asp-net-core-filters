@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace MyWebsite.Filters
 {
-    public class SecondActionFilter : IAsyncActionFilter
+    public class ActionFilter : IAsyncActionFilter
     {
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
