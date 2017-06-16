@@ -1,12 +1,12 @@
 This repository is sample code for ASP.NET Core.
 Use the Visual Studio 2017 to development.
 
-ASP.NET Core - Middleware  
+ASP.NET Core - Filters  
 
-介紹 ASP.NET Core 的 Middleware，透過 Middleware 掌握封包的進出。  
+介紹 ASP.NET Core 的 Filters 的運作方式。
 
 Blog：  
-[ASP.NET Core - Middleware](https://blog.johnwu.cc/article/asp-net-core-middleware.html)
+[ASP.NET Core - Filters](https://blog.johnwu.cc/article/asp-net-core-filters.html)
 
 開發工具：  
 Visual Studio 2017 (可使用其他版，只要有支援 ASP.NET Core 開發就可以。)
