@@ -14,6 +14,7 @@ namespace MyWebsite
                 config.Filters.Add(new FirstActionFilter());
                 config.Filters.Add(new ResultFilter());
                 config.Filters.Add(new ExceptionFilter());
+                config.Filters.Add(new ResourceFilter());
             });
         }
 
