@@ -14,11 +14,11 @@ namespace MyWebsite.Middlewares
 
         public async Task Invoke(HttpContext context)
         {
-            await context.Response.WriteAsync($"{nameof(ThirdMiddleware)} in. \r\n");
+            await context.Response.WriteAsync($"{GetType().Name} in. \r\n");
 
             await _next(context);
 
-            await context.Response.WriteAsync($"{nameof(ThirdMiddleware)} out. \r\n");
+            await context.Response.WriteAsync($"{GetType().Name} out. \r\n");
         }
     }
 }

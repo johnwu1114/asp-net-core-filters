@@ -1,21 +1,34 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using MyWebsite.Filters;
 using MyWebsite.Middlewares;
 
 namespace MyWebsite
 {
     public class Startup
     {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddMvc(config =>
+            {
+                config.Filters.Add(new FirstActionFilter());
+                config.Filters.Add(new ResultFilter());
+                config.Filters.Add(new ExceptionFilter());
+            });
+        }
+
         public void Configure(IApplicationBuilder app)
         {
             app.UseMiddleware<FirstMiddleware>();
-            app.UseMiddleware<SecondMiddleware>();
-            app.UseMiddleware<ThirdMiddleware>();
+            //app.UseMiddleware<SecondMiddleware>();
+            //app.UseMiddleware<ThirdMiddleware>();
 
-            app.Run(async (context) =>
+            app.UseMvc(routes =>
             {
-                await context.Response.WriteAsync("Hello World! \r\n");
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}"
+                );
             });
         }
     }
