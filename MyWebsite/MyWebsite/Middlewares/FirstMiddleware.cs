@@ -16,7 +16,14 @@ namespace MyWebsite.Middlewares
         {
             await context.Response.WriteAsync($"{GetType().Name} in. \r\n");
 
-            await _next(context);
+            try
+            {
+                await _next(context);
+            }
+            catch
+            {
+                await context.Response.WriteAsync($"{GetType().Name} catch exception. \r\n");
+            }
 
             await context.Response.WriteAsync($"{GetType().Name} out. \r\n");
         }

@@ -11,5 +11,10 @@ namespace MyWebsite.Controllers
         {
             Response.WriteAsync("Hello World! \r\n");
         }
+
+        public void Error()
+        {
+            throw new System.Exception("Error");
+        }
     }
 }
